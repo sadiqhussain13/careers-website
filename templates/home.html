@@ -8,21 +8,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
       .container{
-        max-width: 800px;
+        max-width: 80%;
         margin: 0 auto;
       }
       #banner{
         height:360px;
         width:100%;
         object-fit: cover;
+        margin-bottom: 16px;
       }
     </style>
   </head>
   <body>
+    {% include 'navbar.html' %}
+    <img class="img-fluid" id="banner" src="{{ url_for('static', filename='images/christopher-gower-unsplash.jpg') }}" alt="Banner Image">
     <div class="container">
     <h1 class="text-center mt-2 mb-2">AI Curation labs Careers</h1>
-    <img class="img-fluid" id="banner" src="https://d2e56986-9255-4a0c-b32e-821b296cca6e-00-22r7j26pydp9v.kirk.replit.dev/static/christopher-gower-unsplash.jpg">
-      <h2 class="text-center mt-4 mb-2">About AI Curation Labs</h2>
+      <!-- <h2 class="text-center mt-4 mb-2">About AI Curation Labs</h2> -->
+       <div class="row" style="margin-bottom: 16px;">
+        <div class="col-md-6">
       <p class="lead">
         At AI Curation Labs, we are dedicated to harnessing the power of artificial intelligence to curate and enhance data for a wide range of applications. Our mission is to provide innovative solutions that ensure data quality, reliability, and usability, empowering businesses to make informed decisions and drive growth.
       </p>
@@ -32,6 +36,12 @@
       <p class="lead">
         Join us on our journey to revolutionize the way data is curated and utilized. Explore our job openings below and become a part of a dynamic team that's shaping the future of AI-driven data curation.
       </p>
+    </div>
+      <div class="d-none d-md-block col-md-6 align-items-center justify-content-between mt-4 ml-5">
+      <img class="img-fluid" id="people" src="{{ url_for('static', filename='images/working-together.jpg') }}" style="height: 360px; border-radius: 4px;" alt="Working Together">
+      </div>
+    
+    </div>
     <h2 class="text-center mt-4 mb-2">Check out Job Openings below:</h2>
     <div>
       {% for job in jobs %}
@@ -39,9 +49,9 @@
       {% endfor %}
     </div>
       <div class="text-center">
-    <button class="btn btn-primary btn-lg">Contact us</button>
+    <a class="btn btn-primary btn-lg" href="mailto:aicuration@labs.com?subject=Question%20about%20Job%20Opening%20&body=My%20Name%3A%20%3Cyour%20name%3E%0D%0A%0D%0AMy%20Question%3A%20%3Center%20question%20here%3E">Contact us</a>
       </div>
       </div>
-    <footer class="mt-4" style="text-align:center"> &copy;Copyright 2024 | AI Curation labs </footer>
+    {% include 'footer.html' %}
   </body>
 </html>
