@@ -1,0 +1,39 @@
+<h4>Application Form</h4>
+<form action="/job/{{job['id']}}/apply" method="POST">
+        <div class="mb-2">
+            <label for="full_name">Full Name</label><br>
+            <input type="text" name="full_name" placeholder="John Doe" class="form-control" style="width: 25%;">
+        </div>
+
+        <div class="mb-2">
+            <label for="email">Email</label><br>
+            <input type="email" name="email" placeholder="JGqUe@example.com" class="form-control" style="width: 25%;">
+        </div>
+
+        <div class="mb-2">
+            <label>Linkedin</label><br>
+            <input type="text" name="linkedin" placeholder="https://LinkedIn/username" class="form-control" style="width: 25%;">
+        </div>
+
+        <div class="mb-2">
+            <label for="github">Github</label><br>
+            <input type="text" name="github" placeholder="https://github/username" class="form-control" style="width: 25%;">
+        </div>
+
+        <div class="mb-2">
+            <label>Eduction</label><br>
+            <textarea name="education" class="form-control" rows="3" style="width: 50%;"></textarea>
+        </div>
+
+        <div class="mb-2">
+            <label>Work Experience</label><br>
+            <textarea name="experience" class="form-control" rows="3" style="width: 50%;"></textarea>
+        </div>
+
+        <div class="mb-2">
+            <label>Resume</label><br>
+            <input type="text" name="resume" placeholder="https://gdrive/filelink" class="form-control" style="width: 25%;">
+        </div>
+
+            <input type="submit" value="Submit" class="btn btn-primary mt-3">
+</form>

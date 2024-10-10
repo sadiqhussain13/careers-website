@@ -60,6 +60,21 @@ def load_job_from_db(id):
   except psycopg2.Error as e:
     print(f"Error loading job from database: {e}")
 
+def add_application_to_db(job_id, application):
+  try:
+    conn = psycopg2.connect(
+      host=os.environ.get('DATABASE_HOST'),
+      database=os.environ.get('DATABASE_NAME'),
+      user=os.environ.get('DATABASE_USERNAME'),
+      password=os.environ.get('DATABASE_PASSWORD')
+    )
+    cur = conn.cursor()
+    cur.execute("INSERT INTO applications (job_id, full_name, email, linkedin, github, education, experience, resume) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (job_id, application['full_name'], application['email'], application['linkedin'], application['github'], application['education'], application['experience'], application['resume']))
+    conn.commit()
+    conn.close()
+  except psycopg2.Error as e:
+    print(f"Error adding application to database: {e}")
+
 # # To check the type
 # print("type of results: ", type(load_jobs_from_db()))
 # print(load_jobs_from_db())

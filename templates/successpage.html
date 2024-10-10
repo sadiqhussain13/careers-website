@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Success - Careers Website</title>
+        {% include 'bootstrap.html' %}
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        {% include 'banner.html' %}
+        <div class="container mt-5 d-flex flex-column align-items-center">
+            <h2 class="text-center mt-2 mb-2">Thank you for applying!</h2>
+            <p class="mb-5">Your application for the job <b>{{job.title}}</b> has been submitted successfully.</p>
+            <h4>Full Name</h4>
+            <div class="alert alert-success" style="width: 25%;">{{application['full_name']}}</div>
+        
+            <h4>Email</h4>
+            <div class="alert alert-success" style="width: 25%;">{{application['email']}}</div>
+            
+            <h4>Linkedin</h4>
+            <div class="alert alert-success" style="width: 25%;">{{application['linkedin']}}</div>
+            
+            <h4>Github</h4>
+            <div class="alert alert-success" style="width: 25%;">{{application['github']}}</div>
+            
+            <h4>Education</h4>
+            <div class="alert alert-success" style="width: 50%;">{{application['education']}}</div>
+            
+            <h4>Work Experience</h4>
+            <div class="alert alert-success" style="width: 50%;">{{application['experience']}}</div>
+
+            <h4>Resume</h4>
+            <div class="alert alert-success" style="width: 25%;">{{application['resume']}}</div>
+        </div>
+        {% include 'footer.html' %}
+    </body>
+</html>
