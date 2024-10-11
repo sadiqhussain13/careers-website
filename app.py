@@ -20,6 +20,12 @@ def get_job(id):
     return 'Not found', 404
   return render_template('jobpage.html', job=job)
 
+@app.route("/api/job/<id>")
+def show_job_json(id):
+  job = load_job_from_db(id)
+  if not job:
+    return 'Not found', 404
+  return jsonify(job)
 
 @app.route("/job/<id>/apply", methods=['POST'])
 def apply_to_job(id):
@@ -28,8 +34,6 @@ def apply_to_job(id):
   
   # Store this in a DB
   add_application_to_db(id, data)
-
-  # Send an email
 
   # Redirect to a success page
   return render_template('successpage.html', application=data, job=job)
